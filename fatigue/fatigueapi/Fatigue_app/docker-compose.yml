@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: fatigue_app
+    ports:
+      - "8501:8501"
+    networks:
+      - net
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared_tunnel
+    command: tunnel --no-autoupdate --url http://app:8501
+    depends_on:
+      - app
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge

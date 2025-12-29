@@ -1,0 +1,21 @@
+# Ignore large/unneeded files
+node_modules/
+__pycache__/
+*.pkl
+*.h5
+*.yaml
+*.wav
+.DS_Store
+.git/
+.vscode/
+.venv/
+.env
+*.csv
+*.log
+train/
+datasets/
+# Your project structure ↓
+!fatigue/
+!models/
+!requirements.txt
+!Dockerfile
